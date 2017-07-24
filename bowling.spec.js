@@ -7,17 +7,17 @@ describe('Bowling', function() {
       expect(new Bowling(rolls).score()).toEqual(0);
     });
 
-    xit('should be able to score a game with all open frames', function() {
+    it('should be able to score a game with all open frames', function() {
       var rolls = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
       expect(new Bowling(rolls).score()).toEqual(90);
     });
 
-    xit('a spare followed by zeros is worth ten points', function() {
+    it('a spare followed by zeros is worth ten points', function() {
       var rolls = [6, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       expect(new Bowling(rolls).score()).toEqual(10);
     });
 
-    xit('points scored in the roll after a spare are counted twice', function() {
+    it('points scored in the roll after a spare are counted twice', function() {
       var rolls = [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       expect(new Bowling(rolls).score()).toEqual(16);
     });
@@ -77,7 +77,7 @@ describe('Bowling', function() {
     xit('rolls can not score negative points', function() {
       var rolls = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       expect(function() { new Bowling(rolls).score(); }).toThrow(
-        new Error('Pins must have a value from 0 to 10'));    
+        new Error('Pins must have a value from 0 to 10'));
 	});
 
     xit('a roll can not score more than 10 points', function() {
@@ -95,7 +95,7 @@ describe('Bowling', function() {
     xit('two bonus rolls after a strike in the last frame can not score more than 10 points', function() {
       var rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 6];
       expect(function() { new Bowling(rolls).score(); }).toThrow(
-        new Error('Pin count exceeds pins on the lane'));    
+        new Error('Pin count exceeds pins on the lane'));
 	});
 
     xit('two bonus rolls after a strike in the last frame can score more than 10 points if one is a strike', function() {
@@ -106,7 +106,7 @@ describe('Bowling', function() {
     xit('the second bonus rolls after a strike in the last frame can not be a strike if the first one is not a strike', function() {
       var rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 6, 10];
       expect(function() { new Bowling(rolls).score(); }).toThrow(
-        new Error('Pin count exceeds pins on the lane'));    
+        new Error('Pin count exceeds pins on the lane'));
     });
 
     xit('an unstarted game can not be scored', function() {
